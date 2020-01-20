@@ -1,0 +1,16 @@
+#!/bin/bash
+git clone ${repo} /root/repo --recursive --depth 1
+wget -O /root/bds.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${bds_version}.zip
+mkdir /data
+
+pushd /data
+unzip /root/bds.zip
+popd
+
+pushd /root/repo
+make
+make install RELEASE=1 LANG=${bdl_lang} DESTDIR=/data
+popd
+
+/packager.sh /data/bedrock_server /build
+/packager.sh /data/bdlauncher /build
