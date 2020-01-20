@@ -9,7 +9,7 @@ unzip /root/bds.zip
 popd
 
 pushd /root/repo
-make
+make RELEASE=1 LANG=${bdl_lang}
 make install RELEASE=1 LANG=${bdl_lang} DESTDIR=/data
 popd
 
