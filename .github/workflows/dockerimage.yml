@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on: [push, repository_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lang: [EN, CN]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Publish Image
+      uses: codehz/github-docker@master
+      with:
+        buildArg: bdl_lang=${{ matrix.lang }}
+        accessToken: ${{ secrets.GITHUB_TOKEN }}
+        imageName: bdlauncher
+        imageTag: ${{ github.ref }}-${{ matrix.lang }}
