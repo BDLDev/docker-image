@@ -15,3 +15,4 @@ popd
 
 /packager.sh /data/bedrock_server /build
 /packager.sh /data/bdlauncher /build
+cp -av /data /build/data
