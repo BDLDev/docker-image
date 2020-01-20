@@ -19,4 +19,4 @@ jobs:
         buildArg: bdl_lang=${{ matrix.lang }}
         accessToken: ${{ secrets.GITHUB_TOKEN }}
         imageName: bdlauncher
-        imageTag: ${{ github.ref }}-${{ matrix.lang }}
+        imageTag: ${{ matrix.lang }}
