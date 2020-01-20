@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euxo pipefail
 git clone ${repo} /root/repo --recursive --depth 1
 wget -O /root/bds.zip https://minecraft.azureedge.net/bin-linux/bedrock-server-${bds_version}.zip
 mkdir /data
